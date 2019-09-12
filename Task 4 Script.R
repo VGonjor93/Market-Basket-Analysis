@@ -31,14 +31,6 @@ itemFrequencyPlot(trans, type="absolute", col='steelblue3', topN = 10, xlab = "P
 transSize <- size(trans)
 histogram(transSize, col='steelblue3', breaks = 30, xlab = "Number of items per transaction", ylab = "Percentage of transactions", main = "Frequency of transactions based on the amount of items")
 
-#Fuck this
-#par(mar=c(2.5,16,0,1), mfrow=c(1,1))
-#(sort(table(unlist(LIST(trans))))[1:10],
-#        horiz=TRUE,
-#        las=1,
-#        col='steelblue3',
-#        xlab='', )
-
 image(sample(trans, 100))
 ct <- crossTable(trans)
 ct["Logitech Wireless Keyboard", "Logitech Wireless Keyboard"]
@@ -91,7 +83,7 @@ plot(aprioriRules, method="paracoord", control=list(reorder=TRUE))
 plot(aprioriRules[1:10], method="paracoord", control=list(reorder=TRUE))
 plot(aprioriRules,control=list(col=brewer.pal(11,"Spectral")),main="")
 
-plot(aprioriRules@info$ntransactions)
+
 
 iMacRules = subset(aprioriRules, items %in% c("iMac"))
 inspect(sort(iMacRules, by = "lift")[1:10])
